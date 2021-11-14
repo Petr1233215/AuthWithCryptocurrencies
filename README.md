@@ -32,3 +32,6 @@ Entity Framework
 5. Подумать над разделением UI части от бэка, например использовать React
 6. Для аутентификации использовать JWt-token
 7. ??? (Добавить новые страницы, API там большой)
+
+#Ссылка на документацию
+https://coinmarketcap.com/api/documentation/v1/#operation/getV1CryptocurrencyListingsHistorical
