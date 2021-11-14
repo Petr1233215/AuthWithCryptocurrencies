@@ -1,3 +1,4 @@
+using DomainProject;
 using EFData;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -28,7 +29,7 @@ namespace AuthWithCryptocurrencies
             services.AddDbContext<ApplicationContext>(opt 
                 => opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddIdentity<IdentityUser, IdentityRole>()
+            services.AddIdentity<AppUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationContext>();
 
 

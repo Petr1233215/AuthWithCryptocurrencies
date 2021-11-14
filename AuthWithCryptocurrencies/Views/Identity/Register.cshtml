@@ -1,7 +1,8 @@
 ﻿@model ViewRegisterModel
 
 <h2>Register new user</h2>
-<form method="post" asp-controller="User" asp-action="Register">
+<form method="post" asp-controller="Identity" asp-action="Register">
+    <div asp-validation-summary="ModelOnly"></div>
     <div>
         <label asp-for="Email"></label>
         <input asp-for="Email"/>
