@@ -2,6 +2,7 @@
 Для того чтобы проект заработал нужно в классе: AuthWithCryptocurrencies.Helpers.ExhangeHelper - вписать ключ в переменную: API_KEY, авторизации для сайта: pro-api.coinmarketcap.com
 
 ЗАДАНИЕ:
+
 Необходимо создать веб-приложение, которое подсоединяется к API CoinMarketCap (https://pro.coinmarketcap.com/api/v1, для работы с ним нужно зарегистрироваться с Free аккаунтом).
 
 Функциональные требования:
