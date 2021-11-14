@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31112.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthWithCryptocurrencies", "AuthWithCryptocurrencies\AuthWithCryptocurrencies.csproj", "{6918C09C-76EE-43B4-98D3-13C7ADAF862F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFData", "EFData\EFData.csproj", "{5831AFDF-C765-494C-B670-386FB041F783}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainProject", "DomainProject\DomainProject.csproj", "{54B2A9F1-ACD7-4E66-A87A-79364407664E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6918C09C-76EE-43B4-98D3-13C7ADAF862F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6918C09C-76EE-43B4-98D3-13C7ADAF862F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6918C09C-76EE-43B4-98D3-13C7ADAF862F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6918C09C-76EE-43B4-98D3-13C7ADAF862F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5831AFDF-C765-494C-B670-386FB041F783}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5831AFDF-C765-494C-B670-386FB041F783}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5831AFDF-C765-494C-B670-386FB041F783}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5831AFDF-C765-494C-B670-386FB041F783}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54B2A9F1-ACD7-4E66-A87A-79364407664E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54B2A9F1-ACD7-4E66-A87A-79364407664E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54B2A9F1-ACD7-4E66-A87A-79364407664E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54B2A9F1-ACD7-4E66-A87A-79364407664E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B743861B-2A79-4278-82D1-4CA56954BF42}
+	EndGlobalSection
+EndGlobal
