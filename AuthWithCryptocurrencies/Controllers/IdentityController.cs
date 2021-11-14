@@ -1,10 +1,8 @@
 ﻿using AuthWithCryptocurrencies.ViewsModels;
 using DomainProject;
+using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace AuthWithCryptocurrencies.Controllers
@@ -13,19 +11,27 @@ namespace AuthWithCryptocurrencies.Controllers
     {
         private UserManager<AppUser> _userManager;
         private SignInManager<AppUser> _signInManager;
+        private IMediator _mediator;
 
-        public IdentityController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
+        public IdentityController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, IMediator mediator)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _mediator = mediator;
         }
 
+        /// <summary>
+        /// Страница регистрации
+        /// </summary>
         [HttpGet]
         public IActionResult Register()
         {
             return View();
         }
 
+        /// <summary>
+        /// Регистрация пользователя
+        /// </summary>
         [HttpPost]
         public async Task<IActionResult> Register(ViewRegisterModel model)
         {
@@ -51,12 +57,18 @@ namespace AuthWithCryptocurrencies.Controllers
             return View(model); 
         }
 
+        /// <summary>
+        /// Страница аутентификации
+        /// </summary>
         [HttpGet]
         public IActionResult Login(string returnUrl = null)
         {
             return View(new ViewLoginModel { ReturnUrl = returnUrl });
         }
 
+        /// <summary>
+        /// Аутентификация пользователя
+        /// </summary>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(ViewLoginModel model)
@@ -79,6 +91,9 @@ namespace AuthWithCryptocurrencies.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// Выход из аккаунта
+        /// </summary>
         [HttpGet]
         public async Task<IActionResult> Logout()
         {

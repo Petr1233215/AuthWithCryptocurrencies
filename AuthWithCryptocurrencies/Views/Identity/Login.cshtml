@@ -4,11 +4,13 @@
     <div asp-validation-summary="ModelOnly"></div>
     <div>
         <label asp-for="Email"></label>
-        <input asp-for="Email"/>
+        <input asp-for="Email" />
+        <span asp-validation-for="Email"></span>
     </div>
     <div>
         <label asp-for="Password"></label>
         <input asp-for="Password" />
+        <span asp-validation-for="Password"></span>
     </div>
     <div>
         <label asp-for="IsRememberMe"></label>

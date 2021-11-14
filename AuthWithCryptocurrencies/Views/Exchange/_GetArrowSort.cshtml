@@ -1,0 +1,13 @@
+﻿@model KeyValuePair<string, FilterBase>
+
+@if (Model.Key == Model.Value.ColumnName)
+{
+    if (Model.Value.Order == FilterBase.OrderEnum.asc)
+    {
+        <i class="bi bi-arrow-up"></i>
+    }
+    else
+    {
+        <i class="bi bi-arrow-down"></i>
+    }
+}

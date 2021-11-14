@@ -1,5 +1,6 @@
 using DomainProject;
 using EFData;
+using MediatR;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -12,6 +13,7 @@ using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace AuthWithCryptocurrencies
@@ -38,6 +40,8 @@ namespace AuthWithCryptocurrencies
                 opt.LoginPath = "/Identity/Login";
                 opt.LogoutPath = "/Identity/Logout";
             });
+
+            services.AddMediatR(Assembly.GetExecutingAssembly());
 
             services.AddControllersWithViews();
         }

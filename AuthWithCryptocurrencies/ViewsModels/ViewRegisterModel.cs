@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using MediatR;
+using System.ComponentModel.DataAnnotations;
 
 namespace AuthWithCryptocurrencies.ViewsModels
 {
-    public class ViewRegisterModel
+    public class ViewRegisterModel: IRequest
     {
         [Required]
         [Display(Name = "Email")]

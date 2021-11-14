@@ -1,0 +1,102 @@
+﻿@model ViewListingExchangeModel
+
+@{
+    var exhangeModel = Model?.ListingExchangeModelMain?.Data;
+    var filterModel = Model.Filter;
+}
+
+
+
+<h1>Crypto Exchange</h1>
+<div>
+    @if (exhangeModel == null)
+    {
+        <h2>crypto currensy is empty</h2>
+    }
+    else
+    {
+        <div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">
+                            <a asp-controller="Exchange" asp-action="Index" asp-route-ColumnName="name" 
+                               asp-route-Order="@(filterModel.ColumnName == "name" && filterModel.Order == FilterBase.OrderEnum.asc ? FilterBase.OrderEnum.desc : FilterBase.OrderEnum.asc)">Name currency</a>
+                            @await Html.PartialAsync("_GetArrowSort", new KeyValuePair<string, FilterBase>("name", filterModel))
+                        </th>
+                        <th scope="col">
+                            <a asp-controller="Exchange" asp-action="Index" asp-route-ColumnName="symbol" 
+                               asp-route-Order="@(filterModel.ColumnName == "symbol" && filterModel.Order == FilterBase.OrderEnum.asc ? FilterBase.OrderEnum.desc : FilterBase.OrderEnum.asc)">Symbol</a>
+
+                            @await Html.PartialAsync("_GetArrowSort", new KeyValuePair<string, FilterBase>("symbol", filterModel))
+                        </th>
+                        <th scope="col">
+                            Logo
+                        </th>
+                        <th scope="col">
+                            <a asp-controller="Exchange" asp-action="Index" asp-route-ColumnName="price"
+                               asp-route-Order="@(filterModel.ColumnName == "price" && filterModel.Order == FilterBase.OrderEnum.asc ? FilterBase.OrderEnum.desc : FilterBase.OrderEnum.asc)">Price Usd</a>
+                            @await Html.PartialAsync("_GetArrowSort", new KeyValuePair<string, FilterBase>("price", filterModel))
+                        </th>
+                        <th scope="col">
+                            <a asp-controller="Exchange" asp-action="Index" asp-route-ColumnName="percent_change_1h"
+                               asp-route-Order="@(filterModel.ColumnName == "percent_change_1h" && filterModel.Order == FilterBase.OrderEnum.asc ? FilterBase.OrderEnum.desc : FilterBase.OrderEnum.asc)"> Price change in 1 hour(%)</a>
+                            @await Html.PartialAsync("_GetArrowSort", new KeyValuePair<string, FilterBase>("percent_change_1h", filterModel))
+                        </th>
+                        <th scope="col">
+                            <a asp-controller="Exchange" asp-action="Index" asp-route-ColumnName="percent_change_24h"
+                               asp-route-Order="@(filterModel.ColumnName == "percent_change_24h" && filterModel.Order == FilterBase.OrderEnum.asc ? FilterBase.OrderEnum.desc : FilterBase.OrderEnum.asc)">Price change in 24 hour(%)</a>
+                            @await Html.PartialAsync("_GetArrowSort", new KeyValuePair<string, FilterBase>("percent_change_24h", filterModel))
+                        </th>
+                        <th scope="col">
+                            <a asp-controller="Exchange" asp-action="Index" asp-route-ColumnName="market_cap_by_total_supply_strict"
+                               asp-route-Order="@(filterModel.ColumnName == "market_cap_by_total_supply_strict" && filterModel.Order == FilterBase.OrderEnum.asc ? FilterBase.OrderEnum.desc : FilterBase.OrderEnum.asc)">MarketCap Usd</a>
+                            @await Html.PartialAsync("_GetArrowSort", new KeyValuePair<string, FilterBase>("market_cap_by_total_supply_strict", filterModel))
+                        </th>
+                        <th scope="col">
+                            Last Updated
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var currency in exhangeModel)
+                    {
+                        <tr>
+                            <th scope="row">@currency.Id</th>
+                            <td>@currency.Name</td>
+                            <td>@currency.Symbol</td>
+                            <td>
+                                <img width="64px" height="64px" src="@currency.LogoLink" alt="Logo not found" />
+                            </td>
+                            <td>@currency.Quote.USD.Price</td>
+                            <td>@currency.Quote.USD.PercentChange1h</td>
+                            <td>@currency.Quote.USD.PercentChange24h</td>
+                            <td>@currency.Quote.USD.MarketCap</td>
+                            <td>@currency.LastUpdated</td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item">
+                        <a class="page-link" asp-controller="Exchange" asp-action="Index" asp-route-Currentpage="1">First</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" asp-controller="Exchange" asp-action="Index" asp-route-Currentpage="@(filterModel.Currentpage == 1 ? 1 : filterModel.Currentpage - 1)">Previous</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" asp-controller="Exchange" asp-action="Index" asp-route-Currentpage="@(filterModel.Currentpage + 1)">Next</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">Last</a></li>
+                </ul>
+                <p>Number Page: @filterModel.Currentpage</p>
+            </nav>
+        </div>
+    }
+
+</div>
+
