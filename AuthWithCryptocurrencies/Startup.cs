@@ -1,5 +1,6 @@
 using DomainProject;
 using EFData;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -32,6 +33,11 @@ namespace AuthWithCryptocurrencies
             services.AddIdentity<AppUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationContext>();
 
+            services.ConfigureApplicationCookie(opt =>
+            {
+                opt.LoginPath = "/Identity/Login";
+                opt.LogoutPath = "/Identity/Logout";
+            });
 
             services.AddControllersWithViews();
         }
