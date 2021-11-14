@@ -1,4 +1,5 @@
 # AuthWithCryptocurrencies
+# Условия работы приложения
 Для того чтобы проект заработал нужно в классе: AuthWithCryptocurrencies.Helpers.ExhangeHelper - вписать ключ в переменную: API_KEY, авторизации для сайта: pro-api.coinmarketcap.com
 
 ЗАДАНИЕ:
